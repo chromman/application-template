@@ -2,6 +2,28 @@
 <html>
   <head>
     <title>test</title>
+    <style type="text/css" media="print">
+    @page 
+    {
+        size:  auto;   /* auto is the initial value */
+        margin: 0mm;  /* this affects the margin in the printer settings */
+    }
+    html {
+      background-color: var(--bg-color);
+      margin: 0px;
+    }
+    body {
+      font-family: "Arial", sans-serif;
+      color: var(--text-color);
+      margin: 0px;
+    }
+    @media print { 
+				@page {
+					padding: 0;
+					margin: 0; 
+				}
+			}
+    </style>
   </head>
   <style>
     * {
@@ -11,25 +33,17 @@
       --white: #ffffff;
       --black: #000000;
       --gray: #8f8f8f;
-      --bg-color: var(--gray);
+      --bg-color: var(--white);
       --text-color: var(--black);
       --din-a4-width: 21cm;
       --din-a4-height: 29.7cm;
-      --cv-padding: 0.5cm;
+      --cv-padding: 0cm;
       --hist-h: calc(var(--din-a4-height) - var(--cv-padding)*2);
       --hist-w: calc(var(--hist-h)/5.25);
       --hist-rot: 90deg;
       --hist-t-x: calc(var(--din-a4-height) - var(--cv-padding));
       --hist-t-y: calc(var(--din-a4-height) - var(--cv-padding));
-    }
-    html {
-      background-color: var(--bg-color);
-    }
-    body {
-      font-family: "Arial", sans-serif;
-      color: var(--text-color);
-    }
-    
+    }    
     /* represents DIN A4 page */
     .page {
       background-color: var(--white);
@@ -37,6 +51,12 @@
       height: var(--din-a4-height);
       overflow-y: hidden;
       overflow-x: hidden;
+      padding: 0;
+    }
+    
+    html, body{
+      padding: 0px;
+      margin: 0px;
     }
     
     /* layouting for application page */
@@ -48,9 +68,9 @@
             ". head ."
             ". main ."
             ". footnote  ."
-            ". . ."
             ;
         gap: 1cm;
+        margin-bottom: 0px;
     }
     .application-head {
       grid-area: head;
@@ -79,6 +99,7 @@
       display: flex;
       flex-direction: row;
       padding: var(--cv-padding);
+      margin-top: -5mm;
     }
 
     .all-skills{
