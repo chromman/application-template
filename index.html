@@ -33,6 +33,7 @@
       --white: #ffffff;
       --black: #000000;
       --gray: #8f8f8f;
+      --corp-color: #0098a1;
       --bg-color: var(--white);
       --text-color: var(--black);
       --din-a4-width: 21cm;
@@ -160,8 +161,6 @@
     }
 
     .hist-info{
-      /* display: flex;
-      flex-direction: column; */
       display: grid;
       grid-template-columns: "." ;
       grid-template-rows: repeat(5, calc(var(--hist-h)/5));
@@ -177,9 +176,21 @@
       flex-wrap: wrap;
       align-items: left;
       justify-content: center;
-      background: linear-gradient(.25turn, #0098a1 4%, white 4% 100%);  
-      /* box-shadow: inset 10px -0px 0px #0098a1;               */
+      background: linear-gradient(.25turn, var(--corp-color) 4%, white 4% 100%);  
       clip-path: polygon(10% 25%, 10% 0, 100% 0, 100% 48%, 100% 100%, 10% 100%, 10% 75%, 0 50%);
+    }
+    
+    ul {
+      list-style: none; 
+    }
+
+    ul li::before {
+      content: "\2022";  
+      color: var(--corp-color);
+      font-weight: bold; 
+      display: inline-block; 
+      width: 1em; 
+      margin-left: -1em; 
     }
     
   </style>
